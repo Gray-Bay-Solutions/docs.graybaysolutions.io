@@ -25,4 +25,4 @@ else
 fi
 
 echo "✅ Deployment completed!"
-echo "🌐 Application should be running on port 4000" 
+echo "🌐 Application should be running on port 4001" 

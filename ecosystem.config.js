@@ -1,10 +1,10 @@
 module.exports = {
   apps: [
     {
-      name: 'graybay-docs',
+      name: 'docs.graybaysolutions.io',
       script: 'npm',
       args: 'start',
-      cwd: '/var/www/graybay-docs',
+      cwd: '/var/www/docs.graybaysolutions.io',
       instances: 1,
       autorestart: true,
       watch: false,
