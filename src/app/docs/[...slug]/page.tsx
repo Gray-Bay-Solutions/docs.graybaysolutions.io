@@ -46,8 +46,9 @@ export default async function DocPage({ params }: DocPageProps) {
             </div>
             <div>
               <a 
-                href={`https://github.com/your-org/docs/edit/main/docs/${params.slug.join('/')}.md`}
+                href={`https://github.com/Gray-Bay-Solutions/docs.graybaysolutions.io/edit/master/docs/${params.slug.join('/')}.md`}
                 className="hover:text-foreground transition-colors break-words"
+                target="_blank"
               >
                 Edit on GitHub
               </a>
