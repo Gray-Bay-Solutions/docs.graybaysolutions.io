@@ -25,6 +25,7 @@ const navigation: NavItem[] = [
     items: [
       { title: 'Overview', href: '/docs/development' },
       { title: 'Coding Standards', href: '/docs/development/coding-standards' },
+      { title: 'Next.js Deployment', href: '/docs/development/next-js-deployment' },
       // { title: 'Git Workflow', href: '/docs/development/git-workflow' },
       // { title: 'Code Review Process', href: '/docs/development/code-review' },
       // { title: 'Deployment Guide', href: '/docs/development/deployment' },
