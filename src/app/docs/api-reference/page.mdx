@@ -1,0 +1,187 @@
+'use client'
+
+# API Reference
+
+Complete API documentation for Gray Bay Solutions services.
+
+## Authentication
+
+All API requests require authentication using API keys.
+
+### API Key
+
+Include your API key in the header of all requests:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.graybaysolutions.io/v1/endpoint
+```
+
+### Rate Limits
+
+API calls are limited to:
+- **Free tier**: 100 requests per hour
+- **Pro tier**: 1,000 requests per hour
+- **Enterprise**: 10,000 requests per hour
+
+## Endpoints
+
+### Website Templates
+
+#### List Templates
+```http
+GET /v1/templates/websites
+```
+
+Returns available website templates for different industries.
+
+**Response:**
+```json
+{
+  "templates": [
+    {
+      "id": "restaurant-basic",
+      "name": "Restaurant Template",
+      "industry": "restaurant",
+      "price": 1500
+    }
+  ]
+}
+```
+
+#### Create Website
+```http
+POST /v1/websites
+```
+
+**Request Body:**
+```json
+{
+  "template_id": "restaurant-basic",
+  "business_name": "Joe's Diner",
+  "customizations": {
+    "primary_color": "#ff6b35",
+    "logo_url": "https://example.com/logo.png"
+  }
+}
+```
+
+### Chatbots
+
+#### Create Chatbot
+```http
+POST /v1/chatbots
+```
+
+**Request Body:**
+```json
+{
+  "business_type": "restaurant",
+  "business_name": "Joe's Diner",
+  "settings": {
+    "enable_booking": true,
+    "business_hours": "9AM-9PM"
+  }
+}
+```
+
+### SEO Services
+
+#### Start SEO Audit
+```http
+POST /v1/seo/audit
+```
+
+**Request Body:**
+```json
+{
+  "website_url": "https://joesdiner.com",
+  "business_location": "New York, NY"
+}
+```
+
+## Error Handling
+
+All errors return a JSON response with the following structure:
+
+```json
+{
+  "error": {
+    "code": "invalid_request",
+    "message": "The request is missing required parameters"
+  }
+}
+```
+
+### Error Codes
+
+| Code | Description |
+|------|-------------|
+| `invalid_request` | Request is malformed or missing parameters |
+| `unauthorized` | Invalid or missing API key |
+| `rate_limit_exceeded` | Too many requests |
+| `not_found` | Resource not found |
+| `server_error` | Internal server error |
+
+## SDKs
+
+### JavaScript/Node.js
+
+```bash
+npm install @graybaysolutions/sdk
+```
+
+```javascript
+import { GrayBayClient } from '@graybaysolutions/sdk'
+
+const client = new GrayBayClient({
+  apiKey: 'your-api-key'
+})
+
+const website = await client.websites.create({
+  templateId: 'restaurant-basic',
+  businessName: 'Joe\'s Diner'
+})
+```
+
+### Python
+
+```bash
+pip install graybaysolutions
+```
+
+```python
+from graybaysolutions import Client
+
+client = Client(api_key='your-api-key')
+
+website = client.websites.create(
+  template_id='restaurant-basic',
+  business_name="Joe's Diner"
+)
+```
+
+## Webhooks
+
+Set up webhooks to receive notifications about project status updates.
+
+### Webhook Events
+
+- `website.created` - Website project created
+- `website.completed` - Website project completed
+- `chatbot.trained` - Chatbot training completed
+- `seo.audit.completed` - SEO audit finished
+
+### Webhook Payload
+
+```json
+{
+  "event": "website.completed",
+  "data": {
+    "project_id": "proj_123",
+    "website_url": "https://joesdiner.com",
+    "status": "live"
+  },
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+``` 
