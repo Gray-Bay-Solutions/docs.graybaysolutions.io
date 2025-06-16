@@ -266,4 +266,4 @@ sudo netstat -tulpn | grep :300
 
 🎉 **Your Next.js application should now be live!**
 
-For ongoing deployments, simply run `./deploy.sh` after pushing new code changes. 
+For ongoing deployments, simply run `./deploy.sh` after pushing new code changes. Hi test.
